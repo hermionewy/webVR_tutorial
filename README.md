@@ -82,7 +82,7 @@ Now we have a rotating sphere!
 * [WebVR Polyfill](https://github.com/immersive-web/webvr-polyfill)
 
 ## Contributing
-This project is greatly influenced by Three.js documentation (https://threejs.org/docs/index.html#examples/controls/OrbitControls) and 30 VR Projects In 30 Days(https://risonsimon.com/days-in-vr/).
+This project is greatly influenced by [Three.js documentation] (https://threejs.org/docs/index.html#examples/controls/OrbitControls) and [30 VR Projects In 30 Days](https://risonsimon.com/days-in-vr/).
 
 
 ## Authors
