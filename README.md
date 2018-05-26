@@ -16,7 +16,7 @@ I would learn a little bit javascript/HTML/CSS to start this journey.
 
 ## First Step
 
-Let’s learn some basic principles of Three.js first. We’ll know how to create the basic scene after this chapter. You can open the init.html on your browser to see the result.
+Let’s learn some basic principles of Three.js first. We’ll know how to create the basic scene after this chapter. You can open the [init.html](https://hermionewy.github.io/webVR_tutorial/init.html) on your browser to see the result.
 
 ###Create a Three.js scene
 Three.js is JavaScript library used to create and display animated 3D graphics in a browser. Three.js uses WebGL to render elements on <canvas>.
@@ -43,7 +43,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('vr-container').appendChild(renderer.domElement);
 ```
 
-###Create the sphere
+### Create the sphere
 
 Creating an object needs to specify the geometry and the material. The object needs to be added to the scene to be visible.
 ```
@@ -53,7 +53,7 @@ var materialSky = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true
 meshSky = new THREE.Mesh( geometrySky, materialSky );
 scene.add( meshSky );
 ```
-###Add animation
+### Add animation
 Three.js uses requestAnimationFrame method tells the browser that you wish to perform an animation and requests the browser to update an animation before the next repaint.
 ```
 animate();
@@ -65,7 +65,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 ```
-###Add resize function to make it responsive
+### Add resize function to make it responsive
 ```
 window.addEventListener('resize', onResize, true);
 function onResize() {
