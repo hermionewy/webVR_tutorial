@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>video webvr</title>
+  <meta charset="utf-8">
+  <!--Check out why viewport meta is important. https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag-->
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <style>
+    #vr-container{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: #fff;
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+    }
+    canvas { width: 100%; height: 100% }
+  </style>
+</head>
+
+<body>
+<div id="vr-container">
+</div>
+</body>
+
+<!--three.js 3d library-->
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r83/three.min.js"></script>
+<script>
+    var scene =new THREE.Scene();// Create a three.js scene.
+    // Create a three.js camera. Field of View: 75, Aspect Ratio: width/height, Camera Frustum Near Plane: 1, Far Plane: 1100
+    var aspect = window.innerWidth / window.innerHeight;
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 50;
+    var renderer = new THREE.WebGLRenderer();// Setup three.js WebGL renderer.
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    // Append the canvas element created by the renderer to #vr-container div element.
+    document.getElementById('vr-container').appendChild(renderer.domElement);
+
+    //create a video element
+    var video = document.createElement( 'video' );
+    var videoTexture;
+
+    //create video element
+    video.width = window.innerWidth;
+    video.height = window.innerHeight;
+    video.loop = true;
+    video.muted = true;
+    video.src = './maverick1.mp4';
+    video.crossOrigin = '';
+    video.setAttribute('webkit-playsinline', 'true');
+    video.setAttribute('playsinline', 'true');
+    video.load();
+    video.play();
+    //create video texture and add the video element to it.
+    videoTexture = new THREE.VideoTexture( video );
+    videoTexture.minFilter = THREE.LinearFilter;
+    videoTexture.magFilter = THREE.LinearFilter;
+    videoTexture.format = THREE.RGBFormat;
+
+
+    // Create the sky as a sphere with video textures
+    // The radius of the sphere: 10. Width segments is 40, height Segments is 40, which decide how smooth the sphere is.
+    var geometrySky = new THREE.SphereBufferGeometry( 10, 20, 20 );
+    //create material of the sky and add the video to the material
+    var materialSky = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true } );
+    var meshSky = new THREE.Mesh( geometrySky, materialSky );
+    scene.add( meshSky );
+    animate();
+    window.addEventListener('resize', onResize, true);
+
+    //renderer.render(scene, camera);
+
+    // Request animation frame loop function
+    function animate(timestamp) {
+        meshSky.rotation.y += 0.01; //rotate automatically
+        // Render the scene.
+        renderer.render(scene, camera);
+        //Tell the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation
+        requestAnimationFrame(animate);
+    }
+
+    function onResize() {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    }
+
+</script>
+
+</html>

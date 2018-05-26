@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>360 Video WebVR 0.5</title>
+  <meta charset="utf-8">
+  <!--Check out why viewport meta is important. https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag-->
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <style>
+    #vr-container{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: #fff;
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+    }
+    canvas { width: 100%; height: 100% }
+  </style>
+</head>
+
+<body>
+<div id="vr-container">
+</div>
+</body>
+
+<!--three.js 3d library-->
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r83/three.min.js"></script>
+<script src="scripts/OrbitControls.js"></script>
+<script>
+    var scene;
+    var camera;
+    var renderer = new THREE.WebGLRenderer();
+    var meshSky;
+    var video = document.createElement( 'video' );
+    var videoTexture;
+    var orbitController;
+
+
+    function onLoad() {
+        // Setup three.js WebGL renderer.
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // Append the canvas element created by the renderer to #vr-container div element.
+        document.getElementById('vr-container').appendChild(renderer.domElement);
+
+        // Create a three.js scene.
+        scene = new THREE.Scene();
+
+        // Create a three.js camera. Field of View: 75, Aspect Ratio: width/height, Camera Frustum Near Plane: 1, Far Plane: 1100
+        var aspect = window.innerWidth / window.innerHeight;
+        camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+        camera.position.set( 0, 0, 300 );
+        orbitController = new THREE.OrbitControls( camera, renderer.domElement);
+        orbitController.update();
+
+        //create video element
+        video.width = window.innerWidth;
+        video.height = window.innerHeight;
+        video.loop = true;
+        video.muted = true;
+        video.src = './assets/maverick1.mp4';
+        video.crossOrigin = '';
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('playsinline', 'true');
+        video.load();
+        video.play();
+//create video texture and add the video element to it.
+        videoTexture = new THREE.VideoTexture( video );
+        //How the texture is sampled when a texel covers less than one pixel.
+        videoTexture.minFilter = THREE.LinearFilter;
+        //How the texture is sampled when a texel covers more than one pixel.
+        videoTexture.magFilter = THREE.LinearFilter;
+        videoTexture.format = THREE.RGBFormat;
+        // Create the sky as a ball with video textures inside of the ball, and the user is in the center of it.
+        // The radius of the ball: 500,
+        // Width Segments:60, Height Segments: 40. This decides how smooth the ball is.
+        // The geometry is like bones of the ball
+        var geometrySky = new THREE.SphereBufferGeometry( 500, 60, 40 );
+        geometrySky.scale( -1, 1, 1 );
+
+        //create material of the sky and add the video to the material
+        var materialSky = new THREE.MeshBasicMaterial( { map: videoTexture, side: THREE.DoubleSide } );
+        meshSky = new THREE.Mesh( geometrySky, materialSky );
+        meshSky.rotation.y = Math.PI / 2;
+        scene.add( meshSky );
+
+        window.addEventListener('resize', onResize, true);
+        animate();
+    }
+
+
+    // Request animation frame loop function
+    function animate(timestamp) {
+        meshSky.rotation.y += 0.0004; //rotate automatically
+
+        // Render the scene.
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+
+    function onResize() {
+        //renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    }
+    window.addEventListener('load', onLoad);
+
+</script>
+
+</html>
