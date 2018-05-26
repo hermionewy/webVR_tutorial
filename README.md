@@ -8,6 +8,7 @@ Once you download the code, open your terminal and `cd` into this folder. You wi
 
 1.	Run `python SimpleHTTPServer` on your terminal
 2.	Install http-server if you haven’t, then run `http-server`
+3.  Check out [init.html](https://hermionewy.github.io/webVR_tutorial/init.html), [start.html](https://hermionewy.github.io/webVR_tutorial/start.html), [finish.html](https://hermionewy.github.io/webVR_tutorial/finish.html)
 
 ### Prerequisites
 
