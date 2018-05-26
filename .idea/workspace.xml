@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c1c2042-d552-4a7d-8df6-041cee27db0c" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/finish_backup.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/init2.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finish.html" afterPath="$PROJECT_DIR$/finish.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,30 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="finish_backup.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/finish_backup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="131" column="8" lean-forward="true" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/init2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="finish.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/finish.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-455">
+            <state relative-caret-position="166">
               <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
               <folding />
             </state>
@@ -71,8 +52,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="93" column="47" lean-forward="false" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -101,7 +82,6 @@
       <find>video</find>
       <find>vrButton</find>
       <find>renderer</find>
-      <find>orbitControl</find>
       <find>effect</find>
       <find>boxSize</find>
       <find>vrDisplay</find>
@@ -111,6 +91,7 @@
       <find>setSize</find>
       <find>orbit</find>
       <find>mp4</find>
+      <find>orbitControl</find>
     </findStrings>
     <replaceStrings>
       <replace>orbitController</replace>
@@ -212,12 +193,12 @@
       <updated>1527276983344</updated>
       <workItem from="1527276985400" duration="261000" />
       <workItem from="1527288984768" duration="14182000" />
-      <workItem from="1527367091110" duration="5518000" />
+      <workItem from="1527367091110" duration="5751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19961000" />
+    <option name="totallyTimeSpent" value="20194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -350,7 +331,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/finish.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-455">
+        <state relative-caret-position="166">
           <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
@@ -358,8 +339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="374">
+          <caret line="93" column="47" lean-forward="false" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
           <folding />
         </state>
       </provider>
