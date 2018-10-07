@@ -116,10 +116,11 @@ Now we have a 360 video rotating on our browser! However, if you zoom in/out too
 ```
 orbitController.enableZoom=false;
 ```
-##STEP 3
+
+## STEP 3:
 Adding the VR controller is similar to adding the orbit controller, just a little bit more complicated. You can open the finish.html on your browser to see the result.
 
-###Include related scripts
+### Include related scripts
 Firstly, we need to include a few Javascript files.
 
 1. ```webvr-polyfill.js```, which ensures our WebVR content works on any platform, whether or not the browser/device has native WebVR support.
@@ -128,7 +129,7 @@ Firstly, we need to include a few Javascript files.
 3.  ```VREffect.js```, which handles stereo camera setup and rendering.
 4.  ```webvr-ui```, which provides a set of UI controls for entering VR mode.
 
-###Add WebVR controller
+### Add WebVR controller
 
 Secondly, let’s add WebVR controller, which controls the camera. We adjust the camera position according to the positional data the vrController gets.
 ```
